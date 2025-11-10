@@ -1,0 +1,34 @@
+# === Eclipse / IDE ===
+.classpath
+.project
+.settings/
+Servers/
+.metadata/
+bin/
+
+# === Build / Maven ===
+target/
+build/
+.mvn/
+!.mvn/wrapper/maven-wrapper.jar
+*.log
+*.tmp
+
+# === Tomcat / Web ===
+wtpwebapps/
+logs/
+temp/
+work/
+catalina.out
+
+# === OS / Éditeurs ===
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
+.vscode/
+
+# === Fichiers locaux / secrets ===
+*.env
+*.local.properties
+application-local.properties
