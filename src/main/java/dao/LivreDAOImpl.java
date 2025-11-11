@@ -29,7 +29,7 @@ public class LivreDAOImpl implements LivreDAO {
 			    Livre l = new Livre();
 			    l.setId(rs.getInt("id"));
 			    l.setTitre(rs.getString("titre"));
-			    l.setAuteur(rs.getString("auteur"));
+			    l.setAuteur(rs.getString("auteur")); 
 			    l.setIsbn(rs.getString("isbn"));
 			    l.setAnneePublication(rs.getInt("annee_publication"));
 

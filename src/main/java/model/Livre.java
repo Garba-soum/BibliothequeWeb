@@ -10,7 +10,8 @@ public class Livre {
     private Integer genreId; 
 
     public Livre() {}
-
+    
+    //Contructeur 
     public Livre(String titre, String auteur, String isbn, int anneePublication, String genre) {
         this.titre = titre;
         this.auteur = auteur;
