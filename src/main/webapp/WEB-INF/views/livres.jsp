@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.*, model.Livre" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,17 @@
   </style>
 </head>
 <body>
+
   <h1>Liste des livres</h1>
+
+  <!-- Formulaire de recherche -->
+  <form method="get" action="${pageContext.request.contextPath}/livres" style="margin: 12px 0;">
+    <input type="text" name="q" placeholder="Rechercher par titre"
+           value="${param.q}" style="padding:6px; width:250px;">
+    <button type="submit">Rechercher</button>
+    <a href="${pageContext.request.contextPath}/livres">Réinitialiser</a>
+  </form>
+
   <p><a href="${pageContext.request.contextPath}/ajouter-livre">➕ Ajouter un nouveau livre</a></p>
 
   <%
@@ -49,11 +60,11 @@
           <td><%= l.getAnneePublication() %></td>
           <td><%= l.getGenre() %></td>
           <td>
-  <a href="<%= request.getContextPath() %>/modifier-livre?id=<%= l.getId() %>">Modifier</a>
-  |
-  <a href="<%= request.getContextPath() %>/supprimer-livre?id=<%= l.getId() %>"
-     onclick="return confirm('Supprimer ce livre ?');">Supprimer</a>
-</td>
+            <a href="<%= request.getContextPath() %>/modifier-livre?id=<%= l.getId() %>">Modifier</a>
+            |
+            <a href="<%= request.getContextPath() %>/supprimer-livre?id=<%= l.getId() %>"
+               onclick="return confirm('Supprimer ce livre ?');">Supprimer</a>
+          </td>
         </tr>
       <%
         }

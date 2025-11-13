@@ -51,7 +51,7 @@ public class LivreDAOImpl implements LivreDAO {
             ps.setString(2, livre.getAuteur());
             ps.setString(3, livre.getIsbn());
             ps.setInt(4, livre.getAnneePublication());
-            if (livre.getGenreId() == null) {
+            if (livre.getGenreId() == null) {   
                 ps.setNull(5, java.sql.Types.INTEGER);
             } else {
                 ps.setInt(5, livre.getGenreId().intValue());
@@ -91,7 +91,7 @@ public class LivreDAOImpl implements LivreDAO {
         try (Connection cn = ConnexionDB.getConnection();
              PreparedStatement ps = cn.prepareStatement(SELECT_TITRE_LIKE_SQL)) {
 
-            ps.setString(1, motif); // ex: "%Java%"
+            ps.setString(1,"%" + motif + "%"); // ex: "%Java%"
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) res.add(map(rs));
             }
